@@ -1,6 +1,6 @@
 interface QuizData {
-  titles: string;
-  subtitles: string;
+  title: string;
+  subtitle: string;
   quizId: string;
   content: Content[];
   answers: Answer[];
@@ -23,7 +23,7 @@ interface Question {
   text: string;
   image: string;
   alt: string;
-  credits: string;
+  credit: string;
 }
 
-export { QuizData, Answer, Content, Question };
+export type { QuizData, Answer, Content, Question };

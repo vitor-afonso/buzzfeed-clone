@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import axios, { AxiosResponse } from 'axios';
-import { QuizData } from './Interfaces';
+import { QuizData } from './interfaces';
 
 import * as dotenv from 'dotenv'; //Allow us to use secrets from .env
 dotenv.config();
