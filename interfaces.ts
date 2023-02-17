@@ -25,5 +25,10 @@ interface Question {
   alt: string;
   credit: string;
 }
+interface StateTypes {
+  quiz: QuizData;
+  chosenAnswerItems: string[];
+  unanswerdQuestionIds: number[];
+}
 
-export type { QuizData, Answer, Content, Question };
+export type { QuizData, Answer, Content, Question, StateTypes };
