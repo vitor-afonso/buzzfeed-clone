@@ -49,7 +49,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/quiz-item');
+      const response = await axios.get('https://buzzfeed-clone.onrender.com/quiz-item');
       dispatch({ type: ACTION_TYPES.FETCH_QUIZ, payload: response.data });
     } catch (error) {
       console.error(error);
