@@ -10,7 +10,7 @@ const QuestionsBlock = ({ quizItem, state, dispatch }: { quizItem: Content; stat
       </h2>
 
       <div className='questions-container'>
-        {quizItem?.questions.map((question: Question, _index) => (
+        {quizItem?.questions.map((question: Question, _index: number) => (
           <QuestionBlock question={question} key={_index} dispatch={dispatch} state={state} quizItemId={quizItem.id} />
         ))}
       </div>

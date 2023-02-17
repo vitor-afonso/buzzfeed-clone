@@ -26,9 +26,15 @@ interface Question {
   credit: string;
 }
 interface StateTypes {
-  quiz: QuizData;
+  quiz: QuizData | null;
   chosenAnswerItems: string[];
   unanswerdQuestionIds: number[];
+  showAnswer: boolean;
+  result: Answer | null;
+}
+interface ActionTypes {
+  type: string;
+  payload: string | string[] | boolean;
 }
 
-export type { QuizData, Answer, Content, Question, StateTypes };
+export type { QuizData, Answer, Content, Question, StateTypes, ActionTypes };

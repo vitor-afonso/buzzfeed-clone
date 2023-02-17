@@ -70,3 +70,17 @@ p {
   text-decoration: none;
   color: rgb(114, 114, 114);
 }
+.answer-block {
+  width: 600px;
+  background-color: rgb(255, 61, 158);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(255, 255, 255);
+  padding-bottom: 25px;
+}
+
+.answer-block img {
+  width: 90%;
+}

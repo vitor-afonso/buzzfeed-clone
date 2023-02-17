@@ -1,10 +1,11 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import Title from './components/Title';
 import axios from 'axios';
 import { QuizData, Content } from './../interfaces';
 import QuestionsBlock from './components/QuestionsBlock';
 import { INITIAL_STATE, quizReducer } from './quizReducer';
 import { ACTION_TYPES } from './quizActionTypes';
+import AnswerBlock from './components/AnswerBlock';
 
 const App = () => {
   const [state, dispatch] = useReducer(quizReducer, INITIAL_STATE);
@@ -28,13 +29,23 @@ const App = () => {
   }, [state.quiz]);
 
   useEffect(() => {
-    //scroll to the highest unanswerd question
-    if (state.unanswerdQuestionIds !== undefined) {
-      const highestId = Math.min(...state.unanswerdQuestionIds);
-      const highestElement = document.getElementById(String(highestId));
-      highestElement?.scrollIntoView({ behavior: 'smooth' });
+    //scroll to the highest unanswerd question & to answerd block
+    if (state.unanswerdQuestionIds && state.chosenAnswerItems.length > 0) {
+      if (state.unanswerdQuestionIds.length > 0) {
+        const highestId = Math.min(...state.unanswerdQuestionIds);
+        //should change to ref
+        const highestElement = document.getElementById(String(highestId));
+        highestElement?.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      if (state.unanswerdQuestionIds.length <= 0 && state.chosenAnswerItems.length >= 1) {
+        dispatch({ type: ACTION_TYPES.SHOW_ANSWER, payload: true });
+        //should change to ref
+        const answerBlock = document.getElementById('answer-block');
+        answerBlock?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  }, [state.unanswerdQuestionIds]);
+  }, [state.unanswerdQuestionIds, state.chosenAnswerItems, state.showAnswer]);
 
   const fetchData = async () => {
     try {
@@ -52,6 +63,7 @@ const App = () => {
       {state.quiz.content?.map((content: Content, id: Content['id']) => (
         <QuestionsBlock quizItem={content} key={id} dispatch={dispatch} state={state} />
       ))}
+      {state.showAnswer && <AnswerBlock state={state} dispatch={dispatch} />}
     </div>
   );
 };

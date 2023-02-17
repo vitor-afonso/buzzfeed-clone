@@ -1,10 +1,12 @@
+import { StateTypes } from '../interfaces';
 import { ACTION_TYPES } from './quizActionTypes';
 
 export const INITIAL_STATE = {
-  // initial state to be passed to reducer
   quiz: {},
   chosenAnswerItems: [],
   unanswerdQuestionIds: [],
+  showAnswer: false,
+  result: {},
 };
 
 export const quizReducer = (state: any, action: any) => {
@@ -20,6 +22,17 @@ export const quizReducer = (state: any, action: any) => {
       return {
         ...state,
         unanswerdQuestionIds: action.payload,
+      };
+    case ACTION_TYPES.SHOW_ANSWER:
+      return {
+        ...state,
+        showAnswer: action.payload,
+      };
+    case ACTION_TYPES.RESULT:
+      console.log('state.result => ', { result: action.payload });
+      return {
+        ...state,
+        result: action.payload,
       };
     default:
       return state;
