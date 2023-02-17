@@ -20,7 +20,7 @@ app.get('/quiz-item', async (req: Request, res: Response) => {
 
     if (response.status === 200) {
       const quizItem: QuizData = response.data.data['b2d54bb2-8c00-444c-b9a2-7017da0da604'];
-      res.setHeader('Access-Control-Allow-Origin', 'https://buzzfeed-clone.netlify.app' || 'http://localhost:3000');
+      res.setHeader('Access-Control-Allow-Origin', 'https://buzzfeed-clone.netlify.app');
       res.send(quizItem);
     }
   } catch (error) {
@@ -28,6 +28,6 @@ app.get('/quiz-item', async (req: Request, res: Response) => {
   }
 });
 
-app.listen(PORT || 'https://buzzfeed-clone.onrender.com', () => {
+app.listen(PORT, () => {
   console.log('Server listening on port: ' + PORT);
 });
