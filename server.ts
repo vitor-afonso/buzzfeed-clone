@@ -20,7 +20,7 @@ app.get('/quiz-item', async (req: Request, res: Response) => {
 
     if (response.status === 200) {
       const quizItem: QuizData = response.data.data['b2d54bb2-8c00-444c-b9a2-7017da0da604'];
-      res.setHeader('Access-Control-Allow-Origin', 'https://buzzfeed-clone.netlify.app');
+      res.setHeader('Access-Control-Allow-Origin', 'https://buzzfeed-clone.netlify.app,http://localhost:8000');
       res.send(quizItem);
     }
   } catch (error) {
