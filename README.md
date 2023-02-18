@@ -44,7 +44,7 @@ Once the user has answered all the questions, they will be presented with their 
 
 ### Credits
 
-- FreeCodeCamp - https://www.freecodecamp.org/news/learn-how-to-code-a-buzzfeed-clone-in-three-ways/
+- [FreeCodeCamp](https://www.freecodecamp.org/news/learn-how-to-code-a-buzzfeed-clone-in-three-ways/)
 
 ### Share the knowledge
 
