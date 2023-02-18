@@ -29,7 +29,6 @@ export const quizReducer = (state: any, action: any) => {
         showAnswer: action.payload,
       };
     case ACTION_TYPES.RESULT:
-      console.log('state.result => ', { result: action.payload });
       return {
         ...state,
         result: action.payload,
