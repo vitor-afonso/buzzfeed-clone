@@ -9,18 +9,18 @@ import AnswerBlock from './components/AnswerBlock';
 
 const App = () => {
   const [state, dispatch] = useReducer(quizReducer, INITIAL_STATE);
-
+  const API_URL = process.env.REACT_APP_PROJECT_API;
   // to prevent re re-calling of API
   const effectRan = useRef(false);
 
   useEffect(() => {
-    if (effectRan.current === false) {
-      fetchData();
+    if (effectRan.current === false && API_URL) {
+      fetchData(API_URL);
       return () => {
         effectRan.current = true;
       };
     }
-  }, []);
+  }, [API_URL]);
 
   useEffect(() => {
     //here we set the initial unanswerd ids dinamically to the reducer initial state
@@ -47,9 +47,9 @@ const App = () => {
     }
   }, [state.unanswerdQuestionIds, state.chosenAnswerItems, state.showAnswer]);
 
-  const fetchData = async () => {
+  const fetchData = async (url: string) => {
     try {
-      const response = await axios.get('https://buzzfeed-clone.onrender.com/quiz-item');
+      const response = await axios.get(url);
       dispatch({ type: ACTION_TYPES.FETCH_QUIZ, payload: response.data });
     } catch (error) {
       console.error(error);
