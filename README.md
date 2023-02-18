@@ -41,7 +41,6 @@ Once the user has answered all the questions, they will be presented with their 
 
 - TOKEN=[your database secret token]
 - URL=[your SWAGGER URL]
-- REACT_APP_PROJECT_API=http://localhost:8000/quiz-item
 
 ### Credits
 
