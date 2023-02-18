@@ -16,14 +16,6 @@ Once the user has answered all the questions, they will be presented with their 
 
 ### Node version: >=6.9.0
 
-### DEV Usage
-
-- Clone project
-- Open with your favourite IDE
-- npm install - To instal the dependencies
-- npm start:backend - To run the server at http://localhost:8000
-- npm start:frontend - To run the app at http://localhost:3000
-
 ### Technology :wrench:
 
 - Javascript
@@ -32,6 +24,10 @@ Once the user has answered all the questions, they will be presented with their 
 - NodeJS
 - ExpressJS
 - DataStax (database)
+
+### DEV Tip
+
+- Copy the content of the file sample-data.json when creating your database keyspace
 
 ### DEV Usage
 
@@ -45,7 +41,7 @@ Once the user has answered all the questions, they will be presented with their 
 
 - TOKEN=[your database secret token]
 - URL=[your SWAGGER URL]
-- REACT_APP_PROJECT_API=[your data endpoint]
+- REACT_APP_PROJECT_API=http://localhost:8000/quiz-item
 
 ### Credits
 
